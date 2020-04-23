@@ -37,6 +37,8 @@ To do:
 
 The report in the link above has some good visualisations. We should colour the benign and malignant labelled points differently to show how their features differ.
 
+Could include chart of which features were most important in labelling test data
+
 ## Preprocessing
 
 1. Check for missing data
