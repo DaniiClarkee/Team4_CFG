@@ -57,21 +57,21 @@ Could look into more preprocessing techiniques but data seems very nice so probs
 Some notes on the main evaluation criteria:
 
 * **Data Exploration and Processing**
- * Guess we'll just want to convey our understanding of the data, preprocessing measures that we've taken etc
+   * Guess we'll just want to convey our understanding of the data, preprocessing measures that we've taken etc
 * **Data Visualisation**
- * Must include at least 3, but imo the more the better
- * Some to help describe the data initially and then some to interpret the results of the analyses
+   * Must include at least 3, but imo the more the better
+   * Some to help describe the data initially and then some to interpret the results of the analyses
 * **Algorithm Implementation and Evaluation**
- * If we use a number of models, make sure they are coded and commented clearly 
- * Justify our choice of hyperparameters
- * Evaluate the models in the same ways so we can make direct comparisons, with a conclusion on which is best
+   * If we use a number of models, make sure they are coded and commented clearly 
+   * Justify our choice of hyperparameters
+   * Evaluate the models in the same ways so we can make direct comparisons, with a conclusion on which is best
 * **Communication and Q&A Handling**
- * Well structured presentation (see below)
- * Make sure we split the topics between us so when a question is asked, we all know who should answer, then everyone can focus on learning their section well
+   * Well structured presentation (see below)
+   * Make sure we split the topics between us so when a question is asked, we all know who should answer, then everyone can focus on learning their section well
 * **Creativity (Some ideas for things we could do)**
- * Look into some more advanced preprocessing methods
- * Add another model to the ones we test - Neural net?
- * See if there are any more advanced or different comparison methods we could use
+   * Look into some more advanced preprocessing methods
+   * Add another model to the ones we test - Neural net?
+   * See if there are any more advanced or different comparison methods we could use
 
 Presentation structure:
 1. Intro:
