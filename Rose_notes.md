@@ -31,7 +31,6 @@ Could be good to explain this in the presentation so that it's clear what we're 
 
 To do:
 * Inspect each feature to see if there are any outlying data points that need removing
-* Look into multivariate regression as a preprocessing technique
 
 ## Visualisation ideas
 
