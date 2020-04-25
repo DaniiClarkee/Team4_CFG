@@ -110,4 +110,8 @@ To do:
 * Will we have to spend time explaining how the model works or will it just be quick
 * Any other preprocessing methods we could try?
 
+#Answers from Joel 
+* dendragram
+* feature scaling depends on model - would suggest for numerical. 
+
 
