@@ -1,2 +1,3 @@
-global SEED
+global SEED, THRESHHOLD
 SEED = 42
+THRESHOLD = 0.3
