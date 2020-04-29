@@ -1,10 +1,16 @@
 # Functions file
 
-
+from sklearn import metrics
+from sklearn.metrics import (auc, confusion_matrix, roc_curve, 
+                             accuracy_score, precision_score)
+import matplotlib.pyplot as plt
+import numpy as np
+from itertools import product
+import pandas as pd
 
 # Function to print accuracy, precision and AUC
 
-def print_metrics(y_test,pred_clf,proba_clf, classifier_name):
+def print_metrics(X_test, y_test, pred_clf, proba_clf, classifier_name):
     
     """
     This function prints accuracy, precision and AUC
@@ -36,13 +42,13 @@ def print_metrics(y_test,pred_clf,proba_clf, classifier_name):
     auc = metrics.roc_auc_score(y_test, proba_clf[:,1])
     print("{0} AUC: {1:.4f}".format(classifier_name, auc))
     
-    return None
+    return acc, precision
 
 
 
 # Function to display the confusion matrix
 
-def plot_confusion_matrix(cm,
+def plot_conf_matrix(cm,
                           normalize=False,
                           axis=1,
                           figsize=(5,4), 
@@ -105,7 +111,7 @@ def plot_confusion_matrix(cm,
 
 # Function to plot feature importance
 
-def plot_feature_importance(clf, colour, classifier_name):
+def plot_feature_importance(clf, colour, classifier_name, one_hot_df_indep):
     
     """
     This function plots feature importance
