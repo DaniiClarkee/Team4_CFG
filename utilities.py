@@ -10,7 +10,7 @@ import pandas as pd
 
 # Function to print accuracy, precision and AUC
 
-def print_metrics(X_test, y_test, pred_clf, proba_clf, classifier_name):
+def print_metrics(X_test, y_test, pred_clf, proba_clf, classifier_name, return_values = True):
     
     """
     This function prints accuracy, precision and AUC
@@ -42,7 +42,10 @@ def print_metrics(X_test, y_test, pred_clf, proba_clf, classifier_name):
     auc = metrics.roc_auc_score(y_test, proba_clf[:,1])
     print("{0} AUC: {1:.4f}".format(classifier_name, auc))
     
-    return acc, precision
+    if return_values == True:
+        return acc, precision, auc
+    else:
+        return None
 
 
 
@@ -80,11 +83,11 @@ def plot_conf_matrix(cm,
     plt.imshow(cm, interpolation='nearest', cmap=cmap)
     plt.colorbar()
     tick_marks = np.arange(len(classes))
-    plt.xticks(tick_marks, classes, rotation=45)
-    plt.yticks(tick_marks, classes)
+    plt.xticks(tick_marks, classes, rotation=45, fontsize = fontsize)
+    plt.yticks(tick_marks, classes, fontsize = fontsize)
 
     q_labels = ['TN', 'FP', 'FN', 'TP']
-    quad_font_size = 14
+    quad_font_size = fontsize
     fmt = '.2f' if normalize else 'd'
     thresh = cm.max() / 2.
     q_i = 0
@@ -103,8 +106,8 @@ def plot_conf_matrix(cm,
         
 
     plt.tight_layout(h_pad=10, w_pad=0)
-    plt.ylabel('True label')
-    plt.xlabel('Predicted label')
+    plt.ylabel('True label', fontsize = fontsize)
+    plt.xlabel('Predicted label', fontsize = fontsize)
     return None
 
 
@@ -132,7 +135,7 @@ def plot_feature_importance(clf, colour, classifier_name, one_hot_df_indep):
                             columns = ['Importance'])
     features_log = features_log.sort_values(by='Importance', ascending=True)
 
-    features_log.plot(kind='barh', figsize=(12,9), color = colour)
+    features_log.plot(kind='barh', figsize=(24,18), color = colour)
     plt.xlabel('Feature importance')
     plt.title('Feature importance for {}'.format(classifier_name))
     
