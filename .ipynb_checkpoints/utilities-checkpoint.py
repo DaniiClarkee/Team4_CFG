@@ -135,7 +135,7 @@ def plot_feature_importance(clf, colour, classifier_name, one_hot_df_indep):
                             columns = ['Importance'])
     features_log = features_log.sort_values(by='Importance', ascending=True)
 
-    features_log.plot(kind='barh', figsize=(24,18), color = colour)
+    features_log.plot(kind='barh', figsize=(10,8), color = colour)
     plt.xlabel('Feature importance')
     plt.title('Feature importance for {}'.format(classifier_name))
     
