@@ -1,19 +1,18 @@
 # Functions file
 
 from sklearn import metrics
-from sklearn.metrics import (auc, confusion_matrix, roc_curve, 
-                             accuracy_score, precision_score)
+from sklearn.metrics import (auc, confusion_matrix, roc_curve)
 import matplotlib.pyplot as plt
 import numpy as np
 from itertools import product
 import pandas as pd
 
-# Function to print accuracy, precision and AUC
+# Function to print accuracy, recall and AUC
 
 def print_metrics(X_test, y_test, pred_clf, proba_clf, classifier_name, return_values = True):
     
     """
-    This function prints accuracy, precision and AUC
+    This function prints accuracy, recall and AUC
     
     Inputs:
     
@@ -25,25 +24,24 @@ def print_metrics(X_test, y_test, pred_clf, proba_clf, classifier_name, return_v
     
     classifier_name is the name of the classifier which will appear in the text
     
-    No outputs
     
     """
     
-    # Print accuracy and precision
-    tn, fn, fp, tp = confusion_matrix(y_test, pred_clf).ravel()
+    # Print accuracy recall and AUC
+    tn, fp, fn, tp = confusion_matrix(y_test, pred_clf).ravel()
     
     acc = round((tp + tn) / X_test.shape[0], 3) * 100
-    print('{0} accuracy: {1:.2f}%'.format(classifier_name, acc))
+    print('{0} accuracy: {1:.1f}%'.format(classifier_name, acc))
     
-    precision = round((tp / (tp + fp)), 2) * 100
-    print('{0} precision: {1:.2f}%'.format(classifier_name, precision))
+    recall = round((tp / (tp + fn)), 3) * 100
+    print('{0} recall: {1:.1f}%'.format(classifier_name, recall))
     
     # Print AUC
     auc = metrics.roc_auc_score(y_test, proba_clf[:,1])
     print("{0} AUC: {1:.4f}".format(classifier_name, auc))
     
     if return_values == True:
-        return acc, precision, auc
+        return acc, recall, auc
     else:
         return None
 
@@ -61,7 +59,6 @@ def plot_conf_matrix(cm,
     This function prints and plots the confusion matrix.
     Normalization can be applied by setting `normalize=True`.
     Note that normalization here by default occurs across axis=1, or across each row (true class). 
-    (QQ: which metric does this correspond to, precision or recall?)
     """
     classes = ['Benign', 'Malignant']
     
